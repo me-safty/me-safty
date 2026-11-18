@@ -1,7 +1,9 @@
+<p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/card-dark.svg">
   <img src="assets/card-light.svg" width="100%" alt="Mohamed Safty, Senior Product Engineer. I work next to founders. I find the product gap, decide how it should work, build it and get it through App Store review. 10× merged output after I built the AI-agent delivery platform. 2 apps live on the App Store and Google Play. 4+ years shipping TypeScript on web, mobile and backend. 5.0 Upwork rating, 100% Job Success across 11 jobs.">
 </picture>
+</p>
 
 | Work | Role | Years |
 | --- | --- | --- |
