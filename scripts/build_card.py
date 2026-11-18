@@ -43,10 +43,7 @@ THEMES = {
     "dark": dict(bg="#080808", fg="#f4f4f1", soft="#c6c6c2", dim="#8c8c88", line="#ffffff", line_op=0.1),
     "light": dict(bg="#f6f6f3", fg="#121211", soft="#3b3b38", dim="#6e6e69", line="#000000", line_op=0.12),
 }
-LAYOUTS = {
-    "": dict(w=800, pad=32, label=13, head=46, lede=18, lede_w=620, cols=4, gap=24, cap=14),
-    "-mobile": dict(w=400, pad=22, label=11, head=36, lede=16, lede_w=356, cols=2, gap=20, cap=13.5),
-}
+LAYOUT = dict(w=800, pad=32, label=13, head=40, lede=18, lede_w=620, cols=4, gap=24, cap=14)
 
 CELL = 6
 PANEL_COLS, PANEL_ROWS = 23, 9
@@ -135,8 +132,8 @@ def panel(text, x, y, fg):
             f'<g fill="{fg}">{"".join(cells)}</g></g>')
 
 
-def card(theme, layout, regular, semibold, mono):
-    t, L = THEMES[theme], LAYOUTS[layout]
+def card(theme, regular, semibold, mono):
+    t, L = THEMES[theme], LAYOUT
     w, pad = L["w"], L["pad"]
     inner = w - 2 * pad
     out = []
@@ -194,7 +191,6 @@ if __name__ == "__main__":
     faces = fonts()
     OUT.mkdir(exist_ok=True)
     for theme in THEMES:
-        for layout in LAYOUTS:
-            target = OUT / f"card-{theme}{layout}.svg"
-            target.write_text(card(theme, layout, *faces))
-            print(target.relative_to(ROOT), f"{target.stat().st_size / 1024:.1f} KB")
+        target = OUT / f"card-{theme}.svg"
+        target.write_text(card(theme, *faces))
+        print(target.relative_to(ROOT), f"{target.stat().st_size / 1024:.1f} KB")
